@@ -1,0 +1,17 @@
+# vim: ft=bash
+
+[[ -f ~/.profile ]] && . ~/.profile
+
+export PATH=~/bin:$PATH
+eval "$(rbenv init - bash)"
+
+if [ "$TERM" != "linux" ]; then
+	if [ -f ~/.config/pureline/pureline.conf ]; then
+		source /data/data/com.termux/files/usr/share/pureline/pureline ~/.config/pureline/pureline.conf
+	elif [ -f /data/data/com.termux/files/usr/etc/pureline.conf ]; then
+		source /data/data/com.termux/files/usr/share/pureline/pureline /data/data/com.termux/files/usr/etc/pureline.conf
+	fi
+fi
+
+
+source /data/data/com.termux/files/home/.config/broot/launcher/bash/br
